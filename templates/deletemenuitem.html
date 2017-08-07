@@ -15,14 +15,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <h1> New Menu Item</h1>
+    <h1> Delete Menu Item</h1>
 
-	<form action = "{{ url_for('newMenuItem', restaurant_id=restaurant_id) }}" method = 'post'>
+	<form action = "{{ url_for('deleteMenuItem', menu_id=item.id,  restaurant_id=restaurant_id) }}" method = 'post'>
 
-	<p>Name: </p>
-	 <input type = 'text' size='30' name='name'>
+	<p>Name: {{ item.name }}</p>
+	<p>Description: {{ item.description }}</p>
+	<p>Price: {{ item.price }}</p>
+	<p>Course: {{ item.course }}</p>
+	
 
-<input type = 'submit' value = 'Create'>
+<input type = 'submit' value = 'Delete'>
 
 </form>
 

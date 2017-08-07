@@ -15,14 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <h1> New Menu Item</h1>
+    <h1> Edit Menu Item</h1>
 
-	<form action = "{{ url_for('newMenuItem', restaurant_id=restaurant_id) }}" method = 'post'>
+	<form action="{{ url_for('editMenuItem', menu_id=item.id, restaurant_id=restaurant_id) }}" method='post'>
 
-	<p>Name: </p>
-	 <input type = 'text' size='30' name='name'>
+	<p>Name:  <input type='text' size='30' name='name' value='{{item.name}}'> </p>
+	<p>Description: <input type='text' size='30' name='description' value='{{item.description}}'></p>
+	<p>Price: <input type='text' size='15' name='price' value='{{item.price}}'></p>
+	<p>Course: <input type='text' size='30' name='course' value='{{item.course}}'></p>
 
-<input type = 'submit' value = 'Create'>
+<input type = 'submit' value = 'Update'>
 
 </form>
 

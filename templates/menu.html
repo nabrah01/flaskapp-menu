@@ -23,6 +23,10 @@
 
     {% for i in items %}
     <p>
+    <img src="http://loremflickr.com/g/320/240/{{i.name|replace(' ',',') }}/all" />
+
+    <br>
+
     {{i.name}}
 
     <br>
@@ -32,6 +36,10 @@
     <br>
 
     {{i.price}}
+
+    <br>
+
+    {{i.course}}
 
     <br>
 

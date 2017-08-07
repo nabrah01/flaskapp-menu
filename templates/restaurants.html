@@ -24,7 +24,7 @@
     {% for i in restaurant %}
     <table style="width: 250px">
     <tr>
-    <td style="width:50%">{{i.name}} </td>
+    <td style="width:50%"><a href="{{url_for('printMenu',restaurant_id=i.id)}}">{{i.name}}</a> </td>
     <td> <a href="{{ url_for('editRestaurantItem', restaurant_id=i.id)  }} ">Edit</a> </td>
     <td> <a href=" {{ url_for('deleteRestaurantItem', restaurant_id=i.id)  }} ">Delete</a></td>
     </tr>
