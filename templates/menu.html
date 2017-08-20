@@ -19,6 +19,7 @@
 
     <p>
     <a href="{{ url_for('newMenuItem', restaurant_id=restaurant.id) }}">Create new item</a>
+    <a href="{{ url_for('gdisconnect') }}">Logout</a>
     </p>
 
     {% for i in items %}
