@@ -280,11 +280,12 @@ def deleteRestaurantItem(restaurant_id):
                             .one()
 
         if restaurant.user_id != login_session['user_id']:
-            return (
+            value = Markup(
               "<script>function checkFunction() {"
               "alert('You do not have permission to delete this"
               "restaurant.');} </script>"
               "<body onload='checkFunction()'>")
+            return value
 
         if request.method == 'POST':
             session.delete(restaurant)
@@ -367,6 +368,14 @@ def editMenuItem(restaurant_id, menu_id):
 
         item = session.query(MenuItem).filter_by(id=menu_id).one()
 
+        if item.user_id != login_session['user_id']:
+            value = Markup(
+              "<script>function checkFunction() {"
+              "alert('You do not have permission to edit this"
+              " menu item.');} </script>"
+              "<body onload='checkFunction()'>")
+            return value
+
         if request.method == 'POST':
             item.name = request.form['name']
             item.description = request.form['description']
@@ -399,6 +408,14 @@ def deleteMenuItem(restaurant_id, menu_id):
             return redirect('/login')
 
         item = session.query(MenuItem).filter_by(id=menu_id).one()
+
+        if item.user_id != login_session['user_id']:
+            value = Markup(
+              "<script>function checkFunction() {"
+              "alert('You do not have permission to delete this"
+              " menu item.');} </script>"
+              "<body onload='checkFunction()'>")
+            return value
 
         if request.method == 'POST':
             session.delete(item)

@@ -7,27 +7,31 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key = True)
-    name = Column(String(250), nullable = False)
-    email = Column(String(250), nullable = False)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
     picture = Column(String(250))
+
 
 class Restaurant(Base):
     __tablename__ = 'restaurant'
 
-    id = Column(Integer, primary_key = True)
-    name = Column(String(250), nullable = False)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
+    menu_item = relationship('MenuItem', cascade='all, delete-orphan')
 
     @property
     def serialize(self):
-	return {
-	    'name': self.name,
-	    'id': self.id,
-	    }
+        return {
+            'name': self.name,
+            'id': self.id,
+            }
+
 
 class MenuItem(Base):
     __tablename__ = 'menu_item'
@@ -43,14 +47,14 @@ class MenuItem(Base):
 
     @property
     def serialize(self):
-    #return object data in serialize format
+        # return object data in serialize format
         return {
-	    'name': self.name,
-	    'description': self.description,
-	    'id': self.id,
-	    'price': self.price,
-	    'course': self.course,
-	    }
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+            'price': self.price,
+            'course': self.course,
+        }
 
 # at end of file
 engine = create_engine('sqlite:///restaurantmenuwithusers.db')
