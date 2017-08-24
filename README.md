@@ -71,4 +71,8 @@ http://flask.pocoo.org/docs/0.12/quickstart/
 3. sqlalchemy_db_setup.py: Python file to set up the restaurantmenuwithuser.db
 4. restaurantmenuwithusers.db: database file with read/write protections per user
 5. lotsofmenus.py: populate database with dummy data
-6. client_secrets.json: JSON formatted file with client id, client secret, and other oAuth 2.0 parameters. The file authorizes a user to obtain a token before the user authenticates for access to app. Not included here, you'll need to download your own from Google oAuth
+6. firstflask.wsgi: used to run Python applications on a server
+
+## The following files/folders are not included in this repo
+
+1. client_secrets.json: JSON formatted file with client id, client secret, and other oAuth 2.0 parameters. The file authorizes a user to obtain a token before the user authenticates for access to app. Not included here, you'll need to download your own from Google oAuth
