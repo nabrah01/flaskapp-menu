@@ -20,11 +20,12 @@ import requests
 app = Flask(__name__)
 
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/catalog/flaskapp_menu/client_secrets.json', 'r').read())['web']['client_id']
 
 APPLICATION_NAME = "Restaurant menu app"
 
-engine = create_engine('sqlite:///restaurantmenuwithusers.db')
+# engine = create_engine('sqlite:///restaurantmenuwithusers.db')
+engine = create_engine('postgresql://menu:menu@localhost/menu')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -428,6 +429,6 @@ def deleteMenuItem(restaurant_id, menu_id):
 
 
 if __name__ == '__main__':
-        app.secret_key = 'super_secret_key'
+        app.secret_key = 'aidencrestridge11545%&^'
         app.debug = True
         app.run(host='0.0.0.0', port=5000)
