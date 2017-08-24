@@ -16,6 +16,14 @@ This app is part of Udacity's Full Stack Web Developer course, and is built usin
 7. Start the app by running `python firstflask.py` from within the Vagrant virtual machine. This app was coded using Python 2.7.6.
 8. The app can be accessed from your browser at localhost:5000 or the forwarded port you specified in step 6. 
 
+## Summary info on app
+i. IP address: 34.213.89.87, SSH port 2200
+ii. URL of hosted app: http://ec2-34-213-89-87.us-west-2.compute.amazonaws.com/
+iii. Summary of software changes in next section
+iv. Third party resources used to complete project
+https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+http://flask.pocoo.org/docs/0.12/quickstart/
+
 ## To set up the server and host this project on a public web address
 
 1. Create an Amazon LightSail account, download the private key to your account, and change the permissions to 600
